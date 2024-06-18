@@ -1,66 +1,49 @@
-## Foundry
+# Proveably Random Raffle contracts
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+## About
+This is a simple nft project that:
+- Uses ipfs or onchain storage for nft creation
+- For onchain user can create a mood nft that can flip according to their mood
+- Uses openzeppelin's ERC721
 
-Foundry consists of:
+### Requirements
+- git
+- foundry
+- make
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+### Gettig started
 
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
+``` shell
+git clone https://github.com/kdshola/foundry-nft.git
+cd foundry-nft
+make install
+forge build
 ```
 
-### Test
+#### Help text
 
-```shell
-$ forge test
+``` shell
+make help
+```
+#### Spin up anvil node
+
+``` shell
+make anvil
 ```
 
-### Format
+#### Deploy contract to test network
+For anvil deployment no use `make deploy`
 
-```shell
-$ forge fmt
+#### Environment variables
+- PRIVATE_KEY
+- ETHERSCAN_API_KEY
+- SEPOLIA_RPC_URL
+
+``` shell
+make deploy ARGS="--network sepolia"
 ```
 
-### Gas Snapshots
+#### Test contract
 
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+``` shell
+make test
